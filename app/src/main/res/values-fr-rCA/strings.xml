@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
-    <string name="hello_world">Bonjour le monde</string>
-    <string name="button_text">Je suis un bouton!</string>
+
+    <string name="label_title">J’adore Android</string>
+    <string name="switch_label">Interrupteur marche/arrêt</string>
+    <string name="button_press_me">Appuie-moi</string>
+    <string name="checkbox_label">Regarde ça !</string>
+    <string name="hint_love_android">J’adore Android</string>
+
+    <string name="cd_flag_button">Bouton image avec drapeau</string>
+
+    <string name="toast_message">L’étiquette a été mise à jour.</string>
+    <string name="state_on">activé</string>
+    <string name="state_off">désactivé</string>
+    <string name="checkbox_now">La case est maintenant %1$s</string>
+    <string name="undo">Annuler</string>
 </resources>
