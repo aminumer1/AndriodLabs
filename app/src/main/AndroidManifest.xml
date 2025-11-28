@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.andriodlabs">
 
@@ -9,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndriodLabs">
 
+        <!-- Second screen for Lab 3 -->
+        <activity
+            android:name=".NameActivity" />
+
+        <!-- First screen & launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -19,4 +25,5 @@
         </activity>
 
     </application>
+
 </manifest>

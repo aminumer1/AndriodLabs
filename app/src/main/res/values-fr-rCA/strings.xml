@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
 
+    <!-- Lab 2 -->
     <string name="label_title">J’adore Android</string>
     <string name="switch_label">Interrupteur marche/arrêt</string>
     <string name="button_press_me">Appuie-moi</string>
@@ -14,4 +15,14 @@
     <string name="state_off">désactivé</string>
     <string name="checkbox_now">La case est maintenant %1$s</string>
     <string name="undo">Annuler</string>
+
+    <!-- Lab 3 -->
+    <string name="enter_name">Entrez votre nom</string>
+    <string name="hint_name">Votre nom</string>
+    <string name="next">Suivant</string>
+
+    <string name="welcome_plain">Bienvenue !</string>
+    <string name="welcome_name">Bienvenue %1$s !</string>
+    <string name="thank_you">Merci</string>
+    <string name="dont_call">Ne m’appelez pas comme ça</string>
 </resources>

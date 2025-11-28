@@ -1,67 +1,68 @@
 package com.example.andriodlabs;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView titleText;
-    private EditText editInput;
-    private Button pressMe;
-    private CheckBox checkBox;
-    private Switch theSwitch;
-    private ImageButton flagButton; // not required to click, but present per layout
+    public static final int REQ_NAME = 100;
+    public static final String EXTRA_NAME = "extra_name";
+
+    private EditText editName;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Pick one layout to preview at a time; the lab requires all three files exist:
-        // setContentView(R.layout.activity_main_linear);
-        // setContentView(R.layout.activity_main_grid);
-        setContentView(R.layout.activity_main_constraint); // spelled as in the lab brief
+        setContentView(R.layout.activity_main);
 
-        titleText = findViewById(R.id.text_title);
-        editInput = findViewById(R.id.edit_input);
-        pressMe   = findViewById(R.id.button_press);
-        checkBox  = findViewById(R.id.checkbox1);
-        theSwitch = findViewById(R.id.switch1);
-        flagButton= findViewById(R.id.image_flag);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Button: copy EditText to TextView + localized Toast
-        pressMe.setOnClickListener(v -> {
-            String text = editInput.getText() != null ? editInput.getText().toString().trim() : "";
-            if (TextUtils.isEmpty(text)) {
-                editInput.setError(getString(R.string.hint_love_android));
-                return;
+        editName = findViewById(R.id.edit_name);
+        Button next = findViewById(R.id.button_next);
+
+        // Load saved name into EditText if it exists
+        String savedName = prefs.getString("saved_name", "");
+        if (savedName != null && !savedName.isEmpty()) {
+            editName.setText(savedName);
+        }
+
+        // Navigate to second screen
+        next.setOnClickListener(v -> {
+            String name = editName.getText().toString().trim();
+            Intent intent = new Intent(MainActivity.this, NameActivity.class);
+            intent.putExtra(EXTRA_NAME, name);
+            startActivityForResult(intent, REQ_NAME);   // Lab requires startActivityForResult
+        });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Save the current EditText value
+        prefs.edit().putString("saved_name", editName.getText().toString()).apply();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQ_NAME) {
+            if (resultCode == 0) {
+                // User clicked “Don’t call me that”
+                // Returning to this screen — do nothing
+            } else if (resultCode == 1) {
+                // User clicked “Thank You”
+                // Close app
+                finish();
             }
-            titleText.setText(text);
-            Toast.makeText(this, getString(R.string.toast_message), Toast.LENGTH_SHORT).show();
-        });
-
-        // Checkbox: Snackbar shows ON/OFF and Undo flips back
-        checkBox.setOnCheckedChangeListener((CompoundButton cb, boolean isChecked) -> {
-            String state = getString(isChecked ? R.string.state_on : R.string.state_off);
-            String msg = getString(R.string.checkbox_now, state);
-            Snackbar.make(cb, msg, Snackbar.LENGTH_LONG)
-                    .setAction(getString(R.string.undo), click -> cb.setChecked(!isChecked))
-                    .show();
-        });
-
-        // (Optional) Switch listener if you want to show it’s interactive
-        theSwitch.setOnCheckedChangeListener((sw, on) -> {
-            // no rubric requirement; leave empty or log if desired
-        });
+        }
     }
 }
