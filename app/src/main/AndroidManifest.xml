@@ -10,11 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndriodLabs">
 
-        <!-- Second screen for Lab 3 -->
-        <activity
-            android:name=".NameActivity" />
-
-        <!-- First screen & launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,5 +20,4 @@
         </activity>
 
     </application>
-
 </manifest>

@@ -1,31 +1,13 @@
 <resources>
-    <!-- Common -->
     <string name="app_name">AndroidLabs</string>
 
-    <!-- ===== Lab 2 strings ===== -->
-    <string name="label_title">I love Android</string>
-    <string name="switch_label">Switch on/off</string>
-    <string name="button_press_me">Press Me</string>
-    <string name="checkbox_label">Check this out!</string>
-    <string name="hint_love_android">I love Android</string>
+    <!-- Lab 4 strings -->
+    <string name="hint_type_here">Type here</string>
+    <string name="label_urgent">Urgent</string>
+    <string name="button_add">Add</string>
 
-    <string name="cd_flag_button">Image button with flag</string>
-
-    <string name="toast_message">Label has been updated.</string>
-    <string name="state_on">on</string>
-    <string name="state_off">off</string>
-    <string name="checkbox_now">The checkbox is now %1$s</string>
-    <string name="undo">Undo</string>
-
-    <!-- ===== Lab 3 strings ===== -->
-    <!-- MainActivity -->
-    <string name="enter_name">Enter your name</string>
-    <string name="hint_name">Your name</string>
-    <string name="next">Next</string>
-
-    <!-- NameActivity -->
-    <string name="welcome_plain">Welcome!</string>
-    <string name="welcome_name">Welcome %1$s!</string>
-    <string name="thank_you">Thank You</string>
-    <string name="dont_call">Don’t call me that</string>
+    <string name="dialog_title">Do you want to delete this?</string>
+    <string name="dialog_message">The selected row is: %1$d</string>
+    <string name="dialog_delete">Delete</string>
+    <string name="dialog_cancel">Cancel</string>
 </resources>
