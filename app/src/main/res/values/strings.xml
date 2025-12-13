@@ -9,4 +9,6 @@
     <string name="dialog_message">The selected row is: %1$d</string>
     <string name="dialog_delete">Delete</string>
     <string name="dialog_cancel">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
