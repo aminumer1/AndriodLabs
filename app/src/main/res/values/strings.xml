@@ -1,5 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- App name (required by AndroidManifest.xml) -->
     <string name="app_name">AndroidLabs</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="bbc_title">BBC News Reader</string>
+    <string name="details_title">Article Details</string>
+    <string name="favourites_title">Favourites</string>
+    <string name="settings_title">Settings</string>
+    <string name="web_title">Web</string>
+
+    <string name="search_hint">Search titles (optional)</string>
+    <string name="refresh">Refresh</string>
+    <string name="search">Search</string>
+    <string name="open_link">Open link</string>
+    <string name="save_favourite">Save to favourites</string>
+    <string name="delete_favourite">Delete from favourites</string>
+
+    <string name="saved">Saved</string>
+    <string name="save_failed">Could not save (maybe already saved)</string>
+    <string name="deleted">Deleted</string>
+    <string name="delete_failed">Could not delete</string>
+
+    <string name="snackbar_loading">Loading BBC RSS…</string>
+    <string name="snackbar_search">Search applied</string>
+
+    <string name="loaded_n">Loaded %1$d articles</string>
+    <string name="search_done">Showing %1$d result(s)</string>
+
+    <string name="error">Error</string>
+    <string name="error_loading">Failed to load RSS feed.</string>
+
+    <string name="help">Help</string>
+    <string name="help_bbc_main">
+        Tap Refresh to download headlines. Tap a headline for details.
+        Use Search to filter by title.
+    </string>
+    <string name="help_details">
+        Use Open Link to view the story. Use Save/Delete to manage favourites.
+    </string>
+    <string name="help_favourites">
+        Tap an item to view details. Use Delete in the details screen to remove it.
+    </string>
+    <string name="help_web">
+        This screen shows the BBC page inside the app.
+    </string>
+    <string name="help_settings">
+        Shows saved information from previous app usage (SharedPreferences).
+    </string>
+
+    <string name="settings_info">Last refresh: %1$s\nLast opened link: %2$s</string>
+    <string name="never">Never</string>
+
+    <string name="nav_open">Open navigation</string>
+    <string name="nav_close">Close navigation</string>
+
 </resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_bbc"
+        android:title="@string/bbc_title"
+        android:icon="@android:drawable/ic_menu_info_details" />
+
+    <item
+        android:id="@+id/nav_favourites"
+        android:title="@string/favourites_title"
+        android:icon="@android:drawable/btn_star_big_on" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="@string/settings_title"
+        android:icon="@android:drawable/ic_menu_preferences" />
+</menu>

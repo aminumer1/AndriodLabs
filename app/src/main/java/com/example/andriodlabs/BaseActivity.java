@@ -2,12 +2,9 @@ package com.example.andriodlabs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,97 +13,65 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class BaseActivity extends AppCompatActivity {
 
-    protected DrawerLayout drawerLayout;
-    protected NavigationView navigationView;
-    protected Toolbar toolbar;
+    protected DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_base);
+    }
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
+    protected void setupToolbarAndDrawer(String title) {
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            // SIMPLE title — NO BuildConfig
+            getSupportActionBar().setTitle(title);
+        }
+
+        drawer = findViewById(R.id.drawerLayout);
+        NavigationView navView = findViewById(R.id.navView);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,
-                drawerLayout,
+                drawer,
                 toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
+                R.string.nav_open,
+                R.string.nav_close
         );
 
-        drawerLayout.addDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(this);
-    }
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-    protected void setContentLayout(@LayoutRes int layoutResId) {
-        FrameLayout contentFrame = findViewById(R.id.contentFrame);
-        contentFrame.removeAllViews();
-        getLayoutInflater().inflate(layoutResId, contentFrame, true);
-    }
+                int id = item.getItemId();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return true;
-    }
+                if (id == R.id.nav_bbc) {
+                    startActivity(new Intent(BaseActivity.this, BbcMainActivity.class));
+                } else if (id == R.id.nav_favourites) {
+                    startActivity(new Intent(BaseActivity.this, FavouritesActivity.class));
+                } else if (id == R.id.nav_settings) {
+                    startActivity(new Intent(BaseActivity.this, SettingsActivity.class));
+                }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.menu_item_1) {
-            Toast.makeText(this, "You clicked on item 1", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        if (id == R.id.menu_item_2) {
-            Toast.makeText(this, "You clicked on item 2", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        if (id == R.id.menu_item_3) {
-            Toast.makeText(this, "You clicked on the overflow item", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            if (!(this instanceof MainActivity)) {
-                startActivity(new Intent(this, MainActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
             }
-        } else if (id == R.id.nav_dad_joke) {
-            if (!(this instanceof DadJoke)) {
-                startActivity(new Intent(this, DadJoke.class));
-            }
-        } else if (id == R.id.nav_exit) {
-            finishAffinity();
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+        });
     }
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return;
+        if (drawer != null && drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-        super.onBackPressed();
     }
 }

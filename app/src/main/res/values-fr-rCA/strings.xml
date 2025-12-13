@@ -1,12 +1,41 @@
 <resources>
-    <string name="app_name">AndroidLabs</string>
+    <string name="bbc_title">Lecteur de nouvelles BBC</string>
+    <string name="details_title">Détails de l’article</string>
+    <string name="favourites_title">Favoris</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="web_title">Web</string>
 
-    <string name="hint_type_here">Écrivez ici</string>
-    <string name="label_urgent">Urgent</string>
-    <string name="button_add">Ajouter</string>
+    <string name="search_hint">Rechercher dans les titres (optionnel)</string>
+    <string name="refresh">Actualiser</string>
+    <string name="search">Rechercher</string>
+    <string name="open_link">Ouvrir le lien</string>
+    <string name="save_favourite">Ajouter aux favoris</string>
+    <string name="delete_favourite">Supprimer des favoris</string>
 
-    <string name="dialog_title">Voulez-vous supprimer ceci ?</string>
-    <string name="dialog_message">La ligne sélectionnée est : %1$d</string>
-    <string name="dialog_delete">Supprimer</string>
-    <string name="dialog_cancel">Annuler</string>
+    <string name="saved">Enregistré</string>
+    <string name="save_failed">Impossible d’enregistrer</string>
+    <string name="deleted">Supprimé</string>
+    <string name="delete_failed">Impossible de supprimer</string>
+
+    <string name="snackbar_loading">Chargement du flux BBC…</string>
+    <string name="snackbar_search">Recherche appliquée</string>
+
+    <string name="loaded_n">%1$d articles chargés</string>
+    <string name="search_done">%1$d résultat(s)</string>
+
+    <string name="error">Erreur</string>
+    <string name="error_loading">Échec du chargement du flux RSS.</string>
+
+    <string name="help">Aide</string>
+    <string name="help_bbc_main">Appuyez sur Actualiser pour télécharger les titres. Appuyez sur un titre pour voir les détails. Utilisez Rechercher pour filtrer.</string>
+    <string name="help_details">Utilisez Ouvrir le lien pour lire l’article. Utilisez Ajouter/Supprimer pour gérer les favoris.</string>
+    <string name="help_favourites">Appuyez sur un élément pour voir les détails. Supprimez-le dans l’écran des détails.</string>
+    <string name="help_web">Cet écran affiche la page BBC dans l’application.</string>
+    <string name="help_settings">Affiche des informations sauvegardées (SharedPreferences).</string>
+
+    <string name="settings_info">Dernière actualisation : %1$s\nDernier lien ouvert : %2$s</string>
+    <string name="never">Jamais</string>
+
+    <string name="nav_open">Ouvrir la navigation</string>
+    <string name="nav_close">Fermer la navigation</string>
 </resources>
