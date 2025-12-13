@@ -2,14 +2,14 @@ package com.example.andriodlabs;
 
 import android.os.Bundle;
 
-public class MainActivity extends BaseActivity {
+public class DadJoke extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentLayout(R.layout.activity_main);
+        setContentLayout(R.layout.activity_dad_joke);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("AndroidLabs");
+            getSupportActionBar().setTitle("Dad Joke");
         }
     }
 }

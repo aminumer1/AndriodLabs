@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLabs">
 
-        <activity android:name=".EmptyActivity" />
+        <activity android:name=".DadJoke" />
 
         <activity
             android:name=".MainActivity"

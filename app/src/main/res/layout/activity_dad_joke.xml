@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/mainText"
+        android:id="@+id/jokeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lab 8 - MainActivity"
-        android:textSize="22sp" />
+        android:text="I used to hate facial hair... but then it grew on me."
+        android:textSize="20sp" />
 
 </LinearLayout>
